@@ -1,2 +1,2 @@
-# raspberry_0720
+conda# raspberry_0720
 正式使用
