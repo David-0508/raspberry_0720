@@ -25,3 +25,4 @@ humidity=str(random.randint(330,820)/10) #改寫
 celsius=str(random.randint(50,400)/10)  #改寫2
 with open(log_path,mode="a",encoding="utf-8",newline="") as file:
     file.write(now_str +","+humidity+","+celsius+"\n")
+ 
