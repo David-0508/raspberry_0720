@@ -2,6 +2,7 @@ import os.path
 from datetime import datetime
 import random
 
+
 def created_log_file(folder:str,file:str)->str:
     current_path=os.path.abspath(__name__) #取得目前檔案路徑
     directory_name=os.path.dirname(current_path) #取得目前資料夾路行
@@ -31,15 +32,3 @@ def record_info(log_path):
     celsius=str(random.randint(50,400)/10)  #改寫2
     with open(log_path,mode="a",encoding="utf-8",newline="") as file:
         file.write(now_str +","+humidity+","+celsius+"\n")
-
-
-def main():
-    now = datetime.now()
-    current_file_name = now.strftime('%Y_%m_%d.log')
-    log_path = created_log_file(folder='data',file=current_file_name)
-    record_info(log_path)
-
-if __name__ == '__main__':
-    main()
-    
- 
