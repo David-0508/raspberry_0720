@@ -8,7 +8,7 @@ def created_log_file(folder:str,file:str)->str:
     data_path=os.path.join(directory_name,folder) #目前資料夾路徑加上data目錄
     print(data_path)
     if not os.path.isdir(data_path):
-        print("沒有data的目錄,需手動建立目錄")
+        print(f"沒有{folder}的目錄,需手動建立目錄")
         os.mkdir(data_path)
     else:
         print("資料已建立")
@@ -17,7 +17,7 @@ def created_log_file(folder:str,file:str)->str:
 
     log_path=os.path.join(data_path,file)
     if not os.path.isfile(log_path):
-        print("沒有iot.log檔,建立新檔")
+        print(f"沒有{file},建立新檔")
         with open(log_path,mode="w",encoding="utf-8",newline="") as file: #(改成with as寫法)
             file.write("時間,濕度,溫度\n")
     else:
@@ -34,7 +34,9 @@ def record_info(log_path):
 
 
 def main():
-    log_path = created_log_file(folder='data',file='iot.log')
+    now = datetime.now()
+    current_file_name = now.strftime('%Y_%m_%d.log')
+    log_path = created_log_file(folder='data',file=current_file_name)
     record_info(log_path)
 
 if __name__ == '__main__':
